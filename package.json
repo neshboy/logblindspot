@@ -1,0 +1,38 @@
+{
+  "name": "logblindspot",
+  "version": "0.1.0",
+  "description": "Map your SOC's actual configured log sources / EDR telemetry against the real MITRE ATT&CK matrix and see exactly where your detection blind spots are.",
+  "type": "module",
+  "license": "MIT",
+  "author": "neshboy",
+  "bin": {
+    "logblindspot": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "data",
+    "log-sources.yaml"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli/index.ts",
+    "check": "tsx src/cli/index.ts check --sources log-sources.yaml",
+    "report": "tsx src/cli/index.ts report --sources log-sources.yaml -o report.html",
+    "fetch-attack-data": "tsx scripts/fetch-attack-data.ts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "yaml": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "vitest": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
