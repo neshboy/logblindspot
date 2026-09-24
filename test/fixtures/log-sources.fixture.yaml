@@ -1,0 +1,16 @@
+# Fixture log-sources.yaml used by test/coverage/calculator.test.ts.
+# Deliberately covers only some of the techniques in attack-fixture.json, and
+# includes one unknown/typo'd technique ID ("T9999") to exercise the
+# unknown-technique-reference detection path.
+version: 1
+sources:
+  - name: FixtureSourceA
+    description: Covers a top-level technique and one specific sub-technique.
+    techniques:
+      - T1078
+      - T1059.001
+  - name: FixtureSourceB
+    description: Overlaps with FixtureSourceA on T1078, plus one bad/typo ID.
+    techniques:
+      - T1078
+      - T9999
