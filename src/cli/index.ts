@@ -29,7 +29,12 @@ program
       const dataset = await loadAttackDataset(opts.data);
       const config = await loadLogSourceConfig(opts.sources);
       const report = computeCoverage(dataset, config);
-      console.log(renderTerminalReport(report, { full: Boolean(opts.full), color: opts.color }));
+      console.log(
+        renderTerminalReport(report, {
+          full: Boolean(opts.full),
+          color: opts.color === false ? false : undefined,
+        }),
+      );
       process.exitCode = 0;
     } catch (err) {
       handleError(err);
